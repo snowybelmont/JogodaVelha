@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(
+    90deg,
+    #121521 0%, #22283a 100%);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.quadro {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+}
+
+.quadro.x .quadrado:not(.x):not(.bolinha):hover::after,
+.quadro.x .quadrado:not(.x):not(.bolinha):hover::before,
+.quadro.bolinha .quadrado:not(.x):not(.bolinha):hover::after,
+.quadro.x .quadrado:not(.x):not(.bolinha):hover::before {
+  background: rgba(232, 255, 75, 0.3) !important;
+}
+
+.quadrado {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #b1c149;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.quadrado.x,
+.quadrado.bolinha {
+  cursor: not-allowed;
+}
+
+.quadrado:nth-child(1),
+.quadrado:nth-child(2),
+.quadrado:nth-child(3) {
+  border-top: none;
+}
+
+.quadrado:nth-child(1),
+.quadrado:nth-child(4),
+.quadrado:nth-child(7) {
+  border-left: none;
+}
+
+.quadrado:nth-child(7),
+.quadrado:nth-child(8),
+.quadrado:nth-child(9) {
+  border-bottom: none;
+}
+
+.quadrado:nth-child(3),
+.quadrado:nth-child(6),
+.quadrado:nth-child(9) {
+  border-right: none;
+}
+
+.quadrado.x::before,
+.quadrado.x::after,
+.quadro.x .quadrado:not(.x):not(.bolinha):hover::after,
+.quadro.x .quadrado:not(.x):not(.bolinha):hover::before {
+  content: "";
+  height: calc(100px * 0.15);
+  width: calc(100px * 0.9);
+  background: #b1c149;
+  position: absolute;
+}
+
+.quadrado.x::before,
+.quadro.x .quadrado:not(.x):not(.bolinha):hover::before {
+  transform: rotate(45deg);
+}
+
+.quadrado.x::after,
+.quadro.x .quadrado:not(.x):not(.bolinha):hover::after {
+  transform: rotate(-45deg);
+}
+
+.quadrado.bolinha::before,
+.quadrado.bolinha::after,
+.quadro.bolinha .quadrado:not(.x):not(.bolinha):hover::after,
+.quadro.bolinha .quadrado:not(.x):not(.bolinha):hover::after {
+  content: "";
+  height: calc(100px * 0.9);
+  width: calc(100px * 0.9);
+  background: #b1c149;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.vitoria {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(18, 21, 33, 0.8);
+  flex-direction: column;
+}
+
+.vitoria-button {
+  font-size: 1.5rem;
+  background: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: #b1c149 ;
+  margin-top: 16px;
+  color: #b1c149;
+}
+
+.vitoria-button:hover {
+  color: #1c1c1c;
+  border-color: #e8ff4b;
+  background-color: #e8ff4b;
+}
+
+.vitoria-text {
+  color: #b1c149;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.show-vitoria {
+  display: flex;
+}
